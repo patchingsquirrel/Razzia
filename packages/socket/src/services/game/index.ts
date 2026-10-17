@@ -117,14 +117,20 @@ class Game {
     return this._settings
   }
 
-  updateSettings(settings: Partial<GameSettings>): boolean {
+  updateSettings(settings: Partial<GameSettings>): void {
     if (this.started) {
-      return false
+      const { answersOnly, autoAdvance } = settings
+
+      this._settings = {
+        ...this._settings,
+        ...(answersOnly !== undefined && { answersOnly }),
+        ...(autoAdvance !== undefined && { autoAdvance }),
+      }
+
+      return
     }
 
     this._settings = { ...this._settings, ...settings }
-
-    return true
   }
 
   get locked(): boolean {

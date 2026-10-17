@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import type { GameSettings } from "@razzia/common/types/game"
+import { STATUS } from "@razzia/common/types/game/status"
 import { gameSettingsSchema } from "@razzia/common/validators/game"
 import Button from "@razzia/web/components/Button"
 import Tooltip from "@razzia/web/components/Tooltip"
@@ -18,9 +19,10 @@ import toast from "react-hot-toast"
 import { useTranslation } from "react-i18next"
 
 const GameSettingsModal = () => {
-  const { gameId, settings, updateManager } = useManagerStore()
+  const { gameId, settings, status, updateManager } = useManagerStore()
   const [open, setOpen] = useState(false)
   const { t } = useTranslation()
+  const inLobby = status?.name === STATUS.SHOW_ROOM
 
   const form = useForm<GameSettings>({
     resolver: zodResolver(gameSettingsSchema),
@@ -88,7 +90,7 @@ const GameSettingsModal = () => {
               className="flex min-h-0 flex-1 flex-col"
             >
               <div className="min-h-0 flex-1 overflow-y-auto">
-                <GeneratedUsernames />
+                <GeneratedUsernames disabled={!inLobby} />
                 <AnswersOnly />
                 <AutoAdvance />
               </div>

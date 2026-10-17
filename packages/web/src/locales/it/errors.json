@@ -14,7 +14,6 @@
     "usernameTooShort": "Il nome utente non può avere meno di 4 caratteri"
   },
   "game": {
-    "alreadyStarted": "Partita già iniziata",
     "expired": "Partita terminata",
     "invalidAutoAdvanceDelay": "Il ritardo deve essere tra 3 e 600 secondi",
     "kickedByManager": "Sei stato espulso dal gestore",

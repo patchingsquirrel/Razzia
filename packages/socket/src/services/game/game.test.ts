@@ -71,6 +71,40 @@ afterEach(() => {
   vi.useRealTimers()
 })
 
+describe("updating settings during the game", () => {
+  it("applies auto-advance and answers-only changes once started", async () => {
+    const { game, start } = setup(
+      createQuizz([createQuestion(), createQuestion()]),
+    )
+
+    await start()
+
+    game.updateSettings({
+      answersOnly: true,
+      autoAdvance: { enable: true, responsesDelay: 5, leaderboardDelay: 5 },
+    })
+
+    expect(game.settings.answersOnly).toBe(true)
+    expect(game.settings.autoAdvance).toEqual({
+      enable: true,
+      responsesDelay: 5,
+      leaderboardDelay: 5,
+    })
+  })
+
+  it("keeps generated usernames locked once started", async () => {
+    const { game, start } = setup(
+      createQuizz([createQuestion(), createQuestion()]),
+    )
+
+    await start()
+
+    game.updateSettings({ generatedUsernames: true })
+
+    expect(game.settings.generatedUsernames).toBe(false)
+  })
+})
+
 describe("joining a game", () => {
   it("requires a username unless usernames are generated", () => {
     const { game, createSocket } = setup(createQuizz([createQuestion()]), [])
@@ -183,8 +217,6 @@ describe("quiz flow", () => {
     const [alice, bob] = sockets
 
     await start()
-
-    expect(game.updateSettings({ answersOnly: true })).toBe(false)
 
     game.selectAnswer(alice, [0])
     await vi.advanceTimersByTimeAsync(5000)

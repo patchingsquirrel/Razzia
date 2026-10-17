@@ -14,7 +14,6 @@
     "usernameTooShort": "Kullanıcı adı 4 karakterden kısa olamaz"
   },
   "game": {
-    "alreadyStarted": "Oyun zaten başladı",
     "expired": "Oyunun süresi doldu",
     "invalidAutoAdvanceDelay": "Gecikme süresi 3 ile 600 saniye arasında olmalıdır",
     "kickedByManager": "Yönetici tarafından oyundan atıldınız",

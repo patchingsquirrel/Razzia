@@ -14,7 +14,6 @@
     "usernameTooShort": "Der Benutzername muss mindestens 4 Zeichen haben"
   },
   "game": {
-    "alreadyStarted": "Spiel bereits gestartet",
     "expired": "Spiel abgelaufen",
     "invalidAutoAdvanceDelay": "Verzögerung muss zwischen 3 und 600 Sekunden liegen",
     "kickedByManager": "Du wurdest vom Manager entfernt",

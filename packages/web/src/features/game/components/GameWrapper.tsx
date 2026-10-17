@@ -174,7 +174,7 @@ const GameWrapper = ({
                   </div>
                 </Tooltip>
 
-                {statusName === STATUS.SHOW_ROOM && <GameSettingsModal />}
+                <GameSettingsModal />
 
                 <Tooltip
                   content={t(

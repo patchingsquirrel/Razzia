@@ -4,7 +4,11 @@ import SettingRow from "@razzia/web/features/game/components/GameSettingsModal/S
 import { Controller, useFormContext } from "react-hook-form"
 import { useTranslation } from "react-i18next"
 
-const GeneratedUsernames = () => {
+interface Props {
+  disabled?: boolean
+}
+
+const GeneratedUsernames = ({ disabled }: Props) => {
   const { control } = useFormContext<GameSettings>()
   const { t } = useTranslation()
 
@@ -21,6 +25,7 @@ const GeneratedUsernames = () => {
             aria-label={t("game:settings.generatedUsernames.label")}
             checked={field.value}
             onCheckedChange={field.onChange}
+            disabled={disabled}
           />
         </SettingRow>
       )}

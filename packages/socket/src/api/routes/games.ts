@@ -52,12 +52,7 @@ const routes = apiFactory
         return c.json({ error: "errors:game.notFound" }, StatusCodes.NOT_FOUND)
       }
 
-      if (!game.updateSettings(c.req.valid("json"))) {
-        return c.json(
-          { error: "errors:game.alreadyStarted" },
-          StatusCodes.CONFLICT,
-        )
-      }
+      game.updateSettings(c.req.valid("json"))
 
       return c.json({ settings: game.settings })
     },

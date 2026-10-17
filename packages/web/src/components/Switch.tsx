@@ -9,7 +9,7 @@ const Switch = ({ className, ...props }: Props) => (
   <RadixSwitch.Root
     className={twMerge(
       clsx(
-        "data-[state=checked]:bg-primary focus-visible:outline-primary bg-accent relative h-5 w-9 cursor-pointer rounded-md transition-colors focus-visible:outline-2",
+        "data-[state=checked]:bg-primary focus-visible:outline-primary bg-accent relative h-5 w-9 cursor-pointer rounded-md transition-colors focus-visible:outline-2 disabled:cursor-not-allowed disabled:opacity-50",
         className,
       ),
     )}

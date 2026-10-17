@@ -14,7 +14,6 @@
     "usernameTooShort": "Tên người dùng không được ngắn hơn 4 ký tự"
   },
   "game": {
-    "alreadyStarted": "Trò chơi đã bắt đầu",
     "expired": "Trò chơi đã hết hạn",
     "invalidAutoAdvanceDelay": "Thời gian chờ phải từ 3 đến 600 giây",
     "kickedByManager": "Bạn đã bị quản trị viên mời ra khỏi phòng",
