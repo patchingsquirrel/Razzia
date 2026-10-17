@@ -7,6 +7,7 @@ import {
   useSocket,
 } from "@razzia/web/features/game/contexts/socket-context"
 import { useSocketConnection } from "@razzia/web/features/game/hooks/useSocketConnection"
+import { useAudioStore } from "@razzia/web/features/game/stores/audio"
 import { usePlayerStore } from "@razzia/web/features/game/stores/player"
 import { useQuestionStore } from "@razzia/web/features/game/stores/question"
 import {
@@ -25,10 +26,17 @@ const PlayerGamePage = () => {
   const { gameId: gameIdParam } = useParams({ from: "/party/$gameId" })
   const { status, updatePlayer, resetPlayer } = usePlayerStore()
   const { setQuestionStates } = useQuestionStore()
+  const { setAudio, setMainScreen, resetAudio } = useAudioStore()
   const { t } = useTranslation()
   const syncedRef = useRef(false)
 
   useSocketConnection()
+
+  useEffect(() => {
+    setMainScreen(false)
+
+    return () => resetAudio()
+  }, [setMainScreen, resetAudio])
 
   useEffect(() => {
     if (!isConnected) {
@@ -90,6 +98,10 @@ const PlayerGamePage = () => {
     if (name in GAME_STATE_COMPONENTS) {
       updatePlayer({ status: createStatus(name, data) })
     }
+  })
+
+  useEvent(EVENTS.GAME.SETTINGS, ({ audio }) => {
+    setAudio(audio)
   })
 
   useEvent(EVENTS.GAME.RESET, (message) => {

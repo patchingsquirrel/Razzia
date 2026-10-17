@@ -32,6 +32,13 @@
   "resultBehind": ", hemen arkasında: ",
   "resultTop": "Tamamladığınız sıra: ",
   "settings": {
+    "audio": {
+      "effects": "Ses efektleri",
+      "music": "Müzik",
+      "everyone": "Herkes",
+      "mainScreen": "Yalnızca ana ekran",
+      "off": "Kapalı"
+    },
     "autoAdvance": {
       "hint": "Cevaplar ve liderlik tablosu gösterildikten sonra otomatik olarak ilerler.",
       "label": "Otomatik ilerleme",

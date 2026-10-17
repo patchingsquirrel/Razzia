@@ -1,4 +1,5 @@
 import {
+  AUDIO_MODES,
   EVENTS,
   NO_TIME_LIMIT,
   QUESTION_TYPES,
@@ -69,6 +70,49 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.useRealTimers()
+})
+
+describe("audio settings delivery", () => {
+  it("defaults audio to everyone / everyone", () => {
+    const { game } = setup(createQuizz([createQuestion()]), [])
+
+    expect(game.settings.audio).toEqual({
+      sfx: AUDIO_MODES.ALL,
+      music: AUDIO_MODES.ALL,
+    })
+  })
+
+  it("applies an audio change in the lobby and tells the room", () => {
+    const { game, lastEvent } = setup(createQuizz([createQuestion()]), [])
+
+    game.updateSettings({
+      audio: { sfx: AUDIO_MODES.OFF, music: AUDIO_MODES.MANAGER },
+    })
+
+    expect(game.settings.audio).toEqual({
+      sfx: AUDIO_MODES.OFF,
+      music: AUDIO_MODES.MANAGER,
+    })
+    expect(lastEvent(game.gameId, EVENTS.GAME.SETTINGS)?.data).toEqual({
+      audio: { sfx: AUDIO_MODES.OFF, music: AUDIO_MODES.MANAGER },
+    })
+  })
+
+  it("sends the current audio to a player on join", () => {
+    const { game, createSocket, lastEvent } = setup(
+      createQuizz([createQuestion()]),
+      [],
+    )
+
+    game.updateSettings({
+      audio: { sfx: AUDIO_MODES.OFF, music: AUDIO_MODES.OFF },
+    })
+    game.join(createSocket("zoe"), "Zoe")
+
+    expect(lastEvent("zoe", EVENTS.GAME.SETTINGS)?.data).toEqual({
+      audio: { sfx: AUDIO_MODES.OFF, music: AUDIO_MODES.OFF },
+    })
+  })
 })
 
 describe("joining a game", () => {

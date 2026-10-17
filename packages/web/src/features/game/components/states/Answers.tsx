@@ -15,7 +15,7 @@ import clsx from "clsx"
 import { CircleQuestionMark, Image, Video } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
-import useSound from "use-sound"
+import { useGameSound } from "@razzia/web/features/game/hooks/useGameSound"
 
 // Tailwind sm breakpoint
 const MOBILE_BREAKPOINT = 640
@@ -50,15 +50,19 @@ const Answers = ({
   const showMediaInPopup =
     Boolean(player) && width < MOBILE_BREAKPOINT && isPopupMedia
 
-  const [sfxPop] = useSound(SFX.ANSWERS.SOUND, {
+  const [sfxPop] = useGameSound(SFX.ANSWERS.SOUND, "sfx", {
     volume: 0.1,
   })
 
-  const [playMusic, { stop: stopMusic }] = useSound(SFX.ANSWERS.MUSIC, {
-    volume: 0.2,
-    interrupt: true,
-    loop: true,
-  })
+  const [playMusic, { stop: stopMusic }] = useGameSound(
+    SFX.ANSWERS.MUSIC,
+    "music",
+    {
+      volume: 0.2,
+      interrupt: true,
+      loop: true,
+    },
+  )
 
   const handleSubmit = (answerKeys: number[]) => {
     if (!player || !gameId) {

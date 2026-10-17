@@ -33,6 +33,13 @@
   "resultBehind": ", derrière ",
   "resultTop": "Tu es ",
   "settings": {
+    "audio": {
+      "effects": "Effets sonores",
+      "music": "Musique",
+      "everyone": "Tout le monde",
+      "mainScreen": "Écran principal uniquement",
+      "off": "Désactivé"
+    },
     "autoAdvance": {
       "hint": "Enchaîner tout seul après la révélation et le classement.",
       "label": "Avance automatique",

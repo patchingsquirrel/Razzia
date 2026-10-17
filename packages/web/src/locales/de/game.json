@@ -32,6 +32,13 @@
   "resultBehind": ", hinter ",
   "resultTop": "Du hast ",
   "settings": {
+    "audio": {
+      "effects": "Soundeffekte",
+      "music": "Musik",
+      "everyone": "Alle",
+      "mainScreen": "Nur Beamer",
+      "off": "Aus"
+    },
     "autoAdvance": {
       "hint": "Nach der Auflösung und der Rangliste von selbst weitergehen.",
       "label": "Automatisch weiter",

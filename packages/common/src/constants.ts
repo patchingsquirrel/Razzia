@@ -11,6 +11,7 @@ export const EVENTS = {
     RESET: "game:reset",
     UPDATE_QUESTION: "game:updateQuestion",
     PLAYER_ANSWER: "game:playerAnswer",
+    SETTINGS: "game:settings",
   },
   PLAYER: {
     SUCCESS_RECONNECT: "player:successReconnect",
@@ -47,6 +48,12 @@ export const NO_TIME_LIMIT = -1
 
 export const AUTO_ADVANCE_DELAY = { MIN: 3, MAX: 600 } as const
 
+export const AUDIO_MODES = {
+  ALL: "all",
+  MANAGER: "manager",
+  OFF: "off",
+} as const
+
 export const createDefaultGameSettings = (): GameSettings => ({
   generatedUsernames: false,
   answersOnly: false,
@@ -54,6 +61,10 @@ export const createDefaultGameSettings = (): GameSettings => ({
     enable: false,
     responsesDelay: 10,
     leaderboardDelay: 5,
+  },
+  audio: {
+    sfx: AUDIO_MODES.ALL,
+    music: AUDIO_MODES.ALL,
   },
 })
 

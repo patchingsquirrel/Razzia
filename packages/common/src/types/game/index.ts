@@ -96,10 +96,18 @@ export interface AutoAdvanceSettings {
   leaderboardDelay: number
 }
 
+export type AudioMode = "all" | "manager" | "off"
+
+export interface AudioSettings {
+  sfx: AudioMode
+  music: AudioMode
+}
+
 export interface GameSettings {
   generatedUsernames: boolean
   answersOnly: boolean
   autoAdvance: AutoAdvanceSettings
+  audio: AudioSettings
 }
 
 export interface GameUpdateQuestion {

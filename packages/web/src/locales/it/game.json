@@ -33,6 +33,13 @@
   "resultBehind": ", dietro ",
   "resultTop": "Hai terminato ",
   "settings": {
+    "audio": {
+      "effects": "Effetti sonori",
+      "music": "Musica",
+      "everyone": "Tutti",
+      "mainScreen": "Solo schermo principale",
+      "off": "Disattivati"
+    },
     "autoAdvance": {
       "hint": "Prosegue da solo dopo la rivelazione e la classifica.",
       "label": "Avanzamento automatico",

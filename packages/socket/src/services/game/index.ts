@@ -123,8 +123,15 @@ class Game {
     }
 
     this._settings = { ...this._settings, ...settings }
+    this.emitAudio(this.gameId)
 
     return true
+  }
+
+  private emitAudio(target: string) {
+    this.io
+      .to(target)
+      .emit(EVENTS.GAME.SETTINGS, { audio: this._settings.audio })
   }
 
   get locked(): boolean {
@@ -167,17 +174,23 @@ class Game {
       return "errors:game.locked"
     }
 
-    if (this._settings.generatedUsernames) {
-      const taken = this.playerManager.getAll().map((player) => player.username)
+    const name = this._settings.generatedUsernames
+      ? createNickname(
+          this.playerManager.getAll().map((player) => player.username),
+        )
+      : username
 
-      return this.playerManager.join(socket, createNickname(taken))
-    }
-
-    if (!username) {
+    if (!name) {
       return "errors:auth.usernameTooShort"
     }
 
-    return this.playerManager.join(socket, username)
+    const error = this.playerManager.join(socket, name)
+
+    if (!error) {
+      this.emitAudio(socket.id)
+    }
+
+    return error
   }
 
   dispose() {
@@ -267,6 +280,7 @@ class Game {
       players: this.playerManager.getAll(),
     })
     socket.emit(EVENTS.GAME.TOTAL_PLAYERS, this.playerManager.joinedCount())
+    this.emitAudio(socket.id)
 
     registry.reactivateGame(this.gameId)
     console.log(`Manager reconnected to game ${this.inviteCode}`)
@@ -314,6 +328,7 @@ class Game {
       player: { username: player.username, points: player.points },
     })
     this.playerManager.broadcastCount()
+    this.emitAudio(socket.id)
 
     console.log(
       `Player ${player.username} reconnected to game ${this.inviteCode}`,

@@ -33,6 +33,13 @@
   "resultBehind": ", sau ",
   "resultTop": "Bạn xếp ",
   "settings": {
+    "audio": {
+      "effects": "Hiệu ứng âm thanh",
+      "music": "Nhạc",
+      "everyone": "Mọi người",
+      "mainScreen": "Chỉ màn hình chính",
+      "off": "Tắt"
+    },
     "autoAdvance": {
       "hint": "Tự động chuyển tiếp sau khi công bố đáp án và bảng xếp hạng.",
       "label": "Tự động chuyển tiếp",

@@ -1,6 +1,7 @@
 import { EVENTS } from "@razzia/common/constants"
 import type { SessionRole } from "@razzia/common/types/auth"
 import type {
+  AudioSettings,
   GameSettings,
   GameUpdateQuestion,
   Player,
@@ -57,6 +58,7 @@ export interface ServerToClientEvents {
     total: number
   }) => void
   [EVENTS.GAME.PLAYER_ANSWER]: (_count: number) => void
+  [EVENTS.GAME.SETTINGS]: (_data: { audio: AudioSettings }) => void
 
   // Player events
   [EVENTS.PLAYER.SUCCESS_RECONNECT]: (_data: {

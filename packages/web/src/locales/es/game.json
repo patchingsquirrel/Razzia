@@ -32,6 +32,13 @@
   "resultBehind": ", detrás de ",
   "resultTop": "Terminaste ",
   "settings": {
+    "audio": {
+      "effects": "Efectos de sonido",
+      "music": "Música",
+      "everyone": "Todos",
+      "mainScreen": "Solo pantalla principal",
+      "off": "Desactivado"
+    },
     "autoAdvance": {
       "hint": "Continuar solo tras la revelación y la clasificación.",
       "label": "Avance automático",

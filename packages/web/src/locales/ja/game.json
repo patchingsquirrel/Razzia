@@ -32,6 +32,13 @@
   "resultBehind": "、差は ",
   "resultTop": "あなたの順位は ",
   "settings": {
+    "audio": {
+      "effects": "効果音",
+      "music": "音楽",
+      "everyone": "全員",
+      "mainScreen": "メイン画面のみ",
+      "off": "オフ"
+    },
     "autoAdvance": {
       "hint": "正解発表とランキングのあと自動的に次へ進みます。",
       "label": "自動で進む",

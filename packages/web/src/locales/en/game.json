@@ -35,6 +35,13 @@
   "resultBehind": ", behind ",
   "resultTop": "You finished ",
   "settings": {
+    "audio": {
+      "effects": "Sound effects",
+      "music": "Music",
+      "everyone": "Everyone",
+      "mainScreen": "Main screen only",
+      "off": "Off"
+    },
     "autoAdvance": {
       "hint": "Move on by itself after the reveal and the leaderboard.",
       "label": "Auto-advance",

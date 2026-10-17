@@ -21,4 +21,18 @@ describe("gameSettingsValidator", () => {
 
     expect(result.success).toBe(false)
   })
+
+  it("accepts an audio update", () => {
+    expect(
+      gameSettingsValidator.safeParse({ audio: { sfx: "off", music: "all" } })
+        .success,
+    ).toBe(true)
+  })
+
+  it("rejects an unknown audio mode", () => {
+    expect(
+      gameSettingsValidator.safeParse({ audio: { sfx: "loud", music: "all" } })
+        .success,
+    ).toBe(false)
+  })
 })
