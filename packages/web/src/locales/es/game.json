@@ -63,6 +63,8 @@
     "rangeHint": "Entre {{min}} y {{max}}"
   },
   "showQrCode": "Mostrar código QR",
+  "copyJoinLink": "Copiar enlace de acceso con PIN",
+  "joinLinkCopied": "Copiado",
   "streak": "Racha de respuestas",
   "pinDigit": "Dígito {{position}} del PIN"
 }

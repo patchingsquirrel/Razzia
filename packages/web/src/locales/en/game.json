@@ -66,6 +66,8 @@
     "rangeHint": "Between {{min}} and {{max}}"
   },
   "showQrCode": "Show QR code",
+  "copyJoinLink": "Copy join link with PIN",
+  "joinLinkCopied": "Copied",
   "streak": "Answer streak",
   "pinDigit": "PIN digit {{position}}"
 }

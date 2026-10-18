@@ -64,6 +64,8 @@
     "rangeHint": "Từ {{min}} đến {{max}}"
   },
   "showQrCode": "Hiện mã QR",
+  "copyJoinLink": "Sao chép liên kết tham gia kèm mã PIN",
+  "joinLinkCopied": "Đã sao chép",
   "streak": "Chuỗi trả lời đúng",
   "pinDigit": "Chữ số {{position}} của mã PIN"
 }

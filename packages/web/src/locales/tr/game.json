@@ -63,6 +63,8 @@
     "rangeHint": "{{min}} ile {{max}} arasında"
   },
   "showQrCode": "QR kodunu göster",
+  "copyJoinLink": "PIN ile katılma bağlantısını kopyala",
+  "joinLinkCopied": "Kopyalandı",
   "streak": "Doğru cevap serisi",
   "pinDigit": "PIN'in {{position}}. rakamı"
 }
